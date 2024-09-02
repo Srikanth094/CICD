@@ -23,7 +23,7 @@ pipeline {
                 withCredentials([string(credentialsId: 'Sonar-token', variable: 'SONAR_AUTH_TOKEN')]) {
                     script {
                     sh '''
-                     sonar-scanner \
+                     $SCANNER_HOME/bin/sonar-scanner \
                      -Dsonar.projectKey=nodejs \
                      -Dsonar.projectName=nodejs \
                      -Dsonar.sources=. \
