@@ -7,6 +7,7 @@ pipeline {
     environment {
         SONAR_URL = "http://18.215.143.242:9000"
         SCANNER_HOME=tool 'sonar-scanner'
+        SONAR_AUTH_TOKEN = 'Sonar-token'
     }
 
     stages {
@@ -19,8 +20,8 @@ pipeline {
 
         stage('Sonarqube Analysis') {
             steps {
-                withSonarQubeEnv([string(credentialsId: 'Sonar-token', variable: 'SONAR_AUTH_TOKEN')]) {
-                    sh '$SCANNER_HOME/bin/sonar-scanner -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL} -Dsonar.projectName=nodejs \
+                withSonarQubeEnv('sonar-server') {
+                    sh '$SCANNER_HOME/bin/sonar-scanner -Dsonar.login=${SONAR_AUTH_TOKEN} -Dsonar.host.url=${SONAR_URL} -Dsonar.projectName=nodejs \
                     -Dsonar.projectKey=nodejs'
                 }
             }
