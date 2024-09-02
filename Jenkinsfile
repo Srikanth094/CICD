@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Checkout scm') {
             steps {
-                git branch: 'main', url: 'https://github.com/Srikanth094/CICD.git'
+               // git branch: 'main', url: 'https://github.com/Srikanth094/CICD.git'
             }
 
         }
