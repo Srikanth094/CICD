@@ -23,7 +23,7 @@ pipeline {
                 withSonarQubeEnv('sonar-scanner') {
                     script {
                     sh '''
-                     $SCANNER_HOME/bin/sonar-scanner \
+                     sonar-scanner \
                      -Dsonar.projectKey=nodejs \
                      -Dsonar.projectName=nodejs \
                      -Dsonar.sources=. \
