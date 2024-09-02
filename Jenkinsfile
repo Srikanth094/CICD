@@ -9,12 +9,12 @@ pipeline {
     }
 
     stages {
-        stage('Checkout scm') {
+        /*stage('Checkout scm') {
             steps {
                // git branch: 'main', url: 'https://github.com/Srikanth094/CICD.git'
             }
 
-        }
+        }*/
 
         stage('Sonarqube Analysis') {
             steps {
