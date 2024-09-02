@@ -21,7 +21,7 @@ pipeline {
         stage('Sonarqube Analysis') {
             steps {
                 withSonarQubeEnv('sonar-server') {
-                    sh ' $SCANNER_HOME/bin/sonar-scanner -Dsonar.login=${SONAR_AUTH_TOKEN} -Dsonar.host.url=${SONAR_URL} -Dsonar.projectName=nodejs \
+                    sh ' $SCANNER_HOME/bin/sonar-scanner -Dsonar.host.url=${SONAR_URL} -Dsonar.projectName=nodejs \
                     -Dsonar.projectKey=nodejs'
                 }
             }
